@@ -11,7 +11,8 @@ public class MarkdownParse {
         ArrayList<String> toReturn = new ArrayList<>();
         // find the next [, then find the ], then find the (, then read link upto next )
         int currentIndex = 0;
-        if(markdown.indexOf("[", currentIndex) == -1){
+        if(markdown.indexOf("[", currentIndex) == -1 || markdown.indexOf("]", currentIndex) == -1 
+            || markdown.indexOf("(", currentIndex) == -1 || markdown.indexOf(")", currentIndex) == -1){
             return toReturn;
         }
         while(currentIndex < markdown.length()) {
