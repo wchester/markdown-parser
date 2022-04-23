@@ -17,11 +17,15 @@ public class MarkdownParse {
             return toReturn;
         }
         while(currentIndex < markdown.length()) {
-            int exclamation = markdown.indexOf("!", currentIndex);
-            int openBracket = markdown.indexOf("[", exclamation);
+            if(markdown.indexOf("!", currentIndex) != -1){
+                int exclamation = markdown.indexOf("!", currentIndex);
+                
+                int openBracket = markdown.indexOf("[", exclamation);
             if(exclamation == openBracket - 1){
                 break;
             }
+            }
+            int openBracket = markdown.indexOf("[", currentIndex);
             int closeBracket = markdown.indexOf("]", openBracket);
             int openParen = markdown.indexOf("(", closeBracket);
             if(closeBracket + 1 != openParen){
@@ -29,6 +33,9 @@ public class MarkdownParse {
             }
             int closeParen = markdown.indexOf(")", openParen);
             if((closeParen + 1) < currentIndex) {
+                break;
+            }
+            if(closeBracket < openBracket){
                 break;
             }
             toReturn.add(markdown.substring(openParen + 1, closeParen));
