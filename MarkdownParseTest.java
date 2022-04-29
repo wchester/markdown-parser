@@ -19,6 +19,6 @@ public class MarkdownParseTest {
         ArrayList failArray = new ArrayList<>();
         testArray.add("https://something.com");
         testArray.add("some-thing.html");
-        assertEquals(failArray, MarkdownParse.getLinks(content));
+        assertEquals(testArray, MarkdownParse.getLinks(content));
     }
 }
