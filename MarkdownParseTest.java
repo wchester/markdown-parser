@@ -21,4 +21,13 @@ public class MarkdownParseTest {
         testArray.add("some-thing.html");
         assertEquals(testArray, MarkdownParse.getLinks(content));
     }
+
+    @Test
+    public void parenteseTest() throws IOException{
+        Path fileName = Path.of("test_make_fail.md");
+        String content = Files.readString(fileName);
+        ArrayList testArray = new ArrayList<>(2);
+        testArray.add("https://something.com");
+        assertEquals(testArray, MarkdownParse.getLinks(content));
+    }
 }
