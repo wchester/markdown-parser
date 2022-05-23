@@ -53,7 +53,7 @@ public class MarkdownParseTest {
 
     @Test
     public void writeup8Test3() throws IOException{
-        Path fileName = Path.of("writeup8test2.md");
+        Path fileName = Path.of("writeup8test3.md");
         String content = Files.readString(fileName);
         ArrayList testArray = new ArrayList<>(1);
         testArray.add("https://sites.google.com/eng.ucsd.edu/cse-15l-spring-2022/schedule");
